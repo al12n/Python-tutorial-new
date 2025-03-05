@@ -1,40 +1,113 @@
 <!Doctype html>
 <html>
-	<head>
-		<title>Короче немного обо мне</title>
-		<style>
-			body {
-				background-color: #add8e6;
-				font-family: Arial, sans-serif;
-				color: #333;
-				margin: 0;
-				padding: 20px;
-			}
+<head>
+	<title>Просто веб-страница</title>
+	<style>
+		body {
+			background-color: #add8e6;
+			font-family: Arial, sans-serif;
+			color: #333;
+			margin: 0;
+			padding: 20px;
+		}
 
-			h1 {
-				color: #2a5d84;
+		h1 {
+			color: #2a5d84;
+		}
+
+		#chat-box {
+			background-color: #f0f8ff;
+			border: 2px solid #2a5d84;
+			border-radius: 8px;
+			padding: 10px;
+			width: 300px;
+			height: 200px;
+			overflow-y: scroll;
+			margin-bottom: 10px;
+		}
+
+		#message-input {
+			width: 200px;
+			padding: 5px;
+		}
+
+		#send-btn {
+			padding: 5px 10px;
+			background-color: #2a5d84;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Учебник по питон</h1>
+
+	<h2>💬 Оставь сообщение:</h2>
+	<div id="chat-box"></div>
+	<input type="text" id="message-input" placeholder="Напиши что-то...">
+	<button id="send-btn">Отправить</button>
+
+	<script>
+		const chatBox = document.getElementById('chat-box');
+		const messageInput = document.getElementById('message-input');
+		const sendBtn = document.getElementById('send-btn');
+
+		sendBtn.addEventListener('click', () => {
+			const message = messageInput.value.trim();
+
+			if (message !== '') {
+				const messageElement = document.createElement('p');
+				messageElement.textContent = message;
+				chatBox.appendChild(messageElement);
+				messageInput.value = '';
+				chatBox.scrollTop = chatBox.scrollHeight;
 			}
-		</style>
-	</head>
-	<body>
-		<p>И так я расскажу немного обо мне и так ну первое вот мои хоби:</p>
-		<ul>
-			<li>Программировать</li>
-			<li>Шахматы</li>
-			<li>Игры</li>
-			<li>Кушать печенье:)</li>
-		</ul>
-		<p>И так я учусь в школе если что я вас учил питону ну наверное вы это не знали</p>
-		<p>И кстати у меня есть github вот ссылочка)</p>
-		<p><a href="https://github.com/al12n">Github</a></p>
-		<p>Да я на своем профиле не очень активный, но что поделать, этот сайт я кстати опубликую через GitHub короче этот сайт тупо реклама GiyHub'а лол </p>
-		<br>Короче как я принял решение стать программистом рассказываю. Дело было в 3 классе урок информатики мы изучаем скретч и мне было так интересно что я начал учить скретч</br>
-		<br>Проекты были простыми я делал всякую дись создал аккаунт там и начал делать игры через год примерно я решил, а не писать мне код в языках программирование</br>
-		<br>И так смотрю как делать игры на python и потом когда-то нашел курс от Хауди хо кому интересно ссылка появится снизу</br>
-		<p></p>
-		<p><a href="https://www.youtube.com/watch?v=ahe3WpBMdm4&list=PLvoBekrlHDgROfUUHMbrrdsy_b2y2V_rj">Курс Хауди Хо</a></p>
-		<p>Значит после просмотра смотрю другой курс и потом когда-то папа мне расскзал про блогера канал будет снова в низу</p>
-		<p><a href="https://www.youtube.com/@PROGRAMMER_SEREGA"> Канал: Программрую в 5 лет</a></p>
-		<p>И я увлекся нейросетями я сейчас тоже программирую нейросети и сайты и все я это делаю тупо потому что интересно</p>
-	</body>
+		});
+
+		messageInput.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				sendBtn.click();
+			}
+		});
+	</script>
+
+	<p>Python — это очень востребованный язык программирования, и на нём делай что хочешь, например:</p>
+	<ul>
+		<li>Нейросети</li>
+		<li>Игры</li>
+		<li>Простые веб-страницы</li>
+	</ul>
+	
+	<h2>Глава 1. Переменные</h2>
+	<pre><code>variable = 1</code></pre>
+	<pre><code>variable = "Hello"</code></pre>
+
+	<h2>Глава 2. print()</h2>
+	<pre><code>name = "Denis"
+print(name)</code></pre>
+	<pre><code>print("Hello world")</code></pre>
+	<pre><code>name = input("What is your name?")
+print(name)</code></pre>
+
+	<h2>Глава 3. Функции</h2>
+	<pre><code>def greet():
+	print("Hello")</code></pre>
+
+	<h2>Глава 4. Списки и кортежи</h2>
+	<pre><code>my_list = [1, 2, 3, 4, 5]</code></pre>
+	<pre><code>my_tuple = (1, 2, 3, 4, 5)</code></pre>
+
+	<h2>Глава 5. Словари</h2>
+	<pre><code>my_dict = {"name": "Denis", "age": 12}</code></pre>
+
+	<h2>Глава 6. ООП</h2>
+	<pre><code>class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+person = Person("Denis", 12)</code></pre>
+</body>
 </html>
